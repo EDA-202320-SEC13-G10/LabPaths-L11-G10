@@ -125,13 +125,13 @@ def optionEight(cont):
 
 def optionNine(cont, destStation, searchMethod):
     # TODO Lab 11, conectar con la funcion del controller hasSearchPath
-    haspath = None
+    haspath = controller.hasSearchPath(cont, destStation,searchMethod)
     print(haspath)
 
 
 def optionTen(cont, destStation, searchMethod):
     # TODO Lab 11, conectar con la funcion del controller searchPathTo
-    path = None
+    path = controller.searchPathTo(cont,destStation,searchMethod)
     if path is not None:
         pass
     else:
@@ -180,11 +180,15 @@ def thread_cycle():
             optionEight(cont)
 
         elif int(inputs) == 9:
-            # TODO Lab 11, completar inputs opt 9, destStation
+            destStation=input("Estación destino")
+            optionNine(cont, destStation, searchMethod)# TODO Lab 11, completar inputs opt 9, destStation
             pass
 
         elif int(inputs) == 10:
             # TODO Lab 11, completar inputs opt 10, destStation
+            destStation=input("Estación destino")
+            
+            optionTen(cont, destStation, searchMethod)
             pass
 
         else:
