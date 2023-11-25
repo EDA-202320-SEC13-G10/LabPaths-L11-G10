@@ -266,7 +266,7 @@ def searchPathTo(analyzer, destStation, method):
         path = dfs.pathTo(analyzer["paths"],destStation)
     # TODO Lab 11, ejecutar pathTo por bfs
     elif method == "bfs":
-        bfs.pathTo(analyzer["paths"],destStation)
+        path=bfs.pathTo(analyzer["paths"],destStation)
     return path
 
 
