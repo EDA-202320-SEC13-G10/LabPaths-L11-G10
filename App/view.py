@@ -135,7 +135,7 @@ def optionTen(cont, destStation, searchMethod):
     # TODO Lab 11, conectar con la funcion del controller searchPathTo
     path = controller.searchPathTo(cont,destStation,searchMethod)
     if path is not None:
-        return path
+        print(path)
     else:
         print('No hay camino')
 
