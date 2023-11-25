@@ -29,6 +29,8 @@ from DISClib.ADT import map as m
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Graphs import scc
 from DISClib.Algorithms.Graphs import dijsktra as djk
+from DISClib.Algorithms.Graphs import bfs 
+from DISClib.Algorithms.Graphs import dfs
 # TODO Lab 11, agregar importaciones dfs y bfs
 from DISClib.Utils import error as error
 assert config
@@ -55,6 +57,7 @@ def newAnalyzer():
     try:
         # TODO Lab 11, agregar llave "search" para usar dfs y bfs
         analyzer = {
+            "search": None,
             'stops': None,
             'connections': None,
             'components': None,
@@ -217,11 +220,12 @@ def searchPaths(analyzer, initialStation, method):
     """
     # TODO Lab 11, ejecutar DepthFirstSearch de dfs
     if method == "dfs":
-        pass
+        return dfs.DepthFirstSearch(analyzer["connections"],initialStation)
     # TODO Lab 11, ejecutar BreadhtFisrtSearch de bfs
     elif method == "bfs":
-        pass
-    return analyzer
+        return bfs.BreadhtFisrtSearch(analyzer["connections"],initialStation)
+    else:
+        return analyzer
 
 
 def hasSearchPath(analyzer, destStation, method):
@@ -235,11 +239,12 @@ def hasSearchPath(analyzer, destStation, method):
         method (str, optional): algoritmo de busqueda. Por defecto es "dfs"
     """
     # TODO Lab 11, ejecutar hasPathTo por dfs
+    
     if method == "dfs":
-        return None
+        return dfs.hasPathTo(analyzer,destStation)
     # TODO Lab 11, ejecutar hasPathTo por bfs
     elif method == "bfs":
-        return None
+        return bfs.hasPathTo(analyzer,destStation)
 
 
 def searchPathTo(analyzer, destStation, method):
@@ -258,10 +263,10 @@ def searchPathTo(analyzer, destStation, method):
     path = None
     # TODO Lab 11, ejecutar pathTo por dfs
     if method == "dfs":
-        pass
+        path = dfs.pathTo(analyzer["paths"],destStation)
     # TODO Lab 11, ejecutar pathTo por bfs
     elif method == "bfs":
-        pass
+        bfs.pathTo(analyzer["paths"],destStation)
     return path
 
 
